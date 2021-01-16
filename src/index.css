@@ -43,13 +43,46 @@ header img {
   margin: 20px;
 }
 
+.content-bloc {
+  display: flex;
+}
+
+.content {
+  flex: 4;
+  background-color: blue;
+}
+
+.cart-bloc {
+  display: flex;
+  flex: 2;
+  background-color: chartreuse;
+  justify-content: center;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: darkgoldenrod;
+}
+
+.cart-button {
+  background-color: green;
+  width: 290px;
+  height: 60px;
+  border-radius: 5px;
+}
+
 .meal-list {
   display: flex;
   flex-wrap: wrap;
 }
 .meal-card {
   display: flex;
-  width: 330px;
+  width: 320px;
   height: 150px;
   background-color: white;
   margin: 20px 20px 20px 0px;

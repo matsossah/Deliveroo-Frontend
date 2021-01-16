@@ -4,7 +4,7 @@ import Meal from "./Meal";
 const Category = (props) => {
   const { title, meals } = props;
   return (
-    <div className="category-bloc">
+    <div>
       <h2>{title}</h2>
       <div className="meal-list">
         {meals.map((meal, index) => (

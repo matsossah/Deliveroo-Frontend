@@ -7,7 +7,7 @@ const Meal = (props) => {
       <div className="meal-content">
         <p className="meal-title">{title}</p>
         <p className="meal-description">{description}</p>
-        <p className="meal-price">{price}</p>
+        <p className="meal-price">{Number(price)}€</p>
       </div>
       <div className="meal-picture">
         {picture && <img src={picture} alt="" />}

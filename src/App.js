@@ -3,9 +3,11 @@ import axios from "axios";
 import "./App.css";
 import Cover from "./componants/Cover";
 import Category from "./componants/Category";
+import Cart from "./componants/Cart";
 
 function App() {
   const [infos, setInfos] = useState({});
+  const [cart, setCart] = useState({});
   const [isLoading, setLoading] = useState(true);
 
   const fetchData = async () => {
@@ -48,14 +50,19 @@ function App() {
                 />
               </div>
             </div>
-            <div className="container">
-              {infos.categories.map((category, index) => (
-                <Category
-                  title={category.name}
-                  meals={category.meals}
-                  key={index}
-                />
-              ))}
+            <div className="container content-bloc">
+              <div className="content">
+                {infos.categories.map((category, index) => (
+                  <Category
+                    title={category.name}
+                    meals={category.meals}
+                    key={index}
+                  />
+                ))}
+              </div>
+              <div className="cart-bloc">
+                <Cart />
+              </div>
             </div>
           </div>
         )}
