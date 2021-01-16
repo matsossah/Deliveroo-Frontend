@@ -26,21 +26,29 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <header>
-        <img src="./assets/Deliveroo-Logo.jpg" alt="logo" />
-      </header>
+    <div>
+      <div className="header-bloc">
+        <div className="container">
+          <header>
+            <img src="./assets/Deliveroo-Logo.jpg" alt="logo" />
+          </header>
+        </div>
+      </div>
       <div>
         {isLoading ? (
           <h2>Loading...</h2>
         ) : (
           <div>
-            <Cover
-              title={infos.restaurant.name}
-              text={infos.restaurant.description}
-              imageURL="./assets/header-image.jpg"
-            />
-            <div className="content">
+            <div className="cover-bloc">
+              <div className="container">
+                <Cover
+                  title={infos.restaurant.name}
+                  text={infos.restaurant.description}
+                  imageURL="./assets/header-image.jpg"
+                />
+              </div>
+            </div>
+            <div className="container">
               {infos.categories.map((category, index) => (
                 <Category
                   title={category.name}

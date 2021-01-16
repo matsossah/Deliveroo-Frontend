@@ -11,7 +11,11 @@ const Category = (props) => {
           <Meal
             key={meal.id}
             title={meal.title}
-            description={meal.description.substring(0, 50) + "..."}
+            description={
+              meal.description.length < 45
+                ? ""
+                : meal.description.substring(0, 45) + "..."
+            }
             price={meal.price}
             picture={meal.picture}
           />

@@ -9,7 +9,9 @@ const Meal = (props) => {
         <p className="meal-description">{description}</p>
         <p className="meal-price">{price}</p>
       </div>
-      <img src={picture} alt="" />
+      <div className="meal-picture">
+        {picture && <img src={picture} alt="" />}
+      </div>
     </div>
   );
 };
