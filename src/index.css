@@ -1,12 +1,91 @@
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #efefef;
-  font-size: 16px;
+  background-color: grey;
   margin: 0;
   padding: 0;
 }
+
 .container {
   width: 1024px;
   margin: 0 auto;
-  background-color: blue;
+  background-color: white;
+}
+
+.content {
+  background-color: pink;
+}
+
+header {
+  border-bottom: solid 1px grey;
+  background-color: white;
+}
+
+header img {
+  height: 60px;
+}
+
+.cover {
+  display: flex;
+}
+
+.cover-desc {
+  flex: 3;
+  padding-right: 50px;
+}
+
+.cover img {
+  flex: 1;
+  border-radius: 10px;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  vertical-align: middle; /* ! */
+  margin: 20px;
+}
+
+.meal-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.meal-card {
+  display: flex;
+  width: 300px;
+  height: 140px;
+  background-color: powderblue;
+  margin: 20px 20px 20px 0px;
+  border-radius: 10px;
+}
+
+.meal-content {
+  flex: 3;
+  padding: 10px;
+}
+
+.meal-card img {
+  flex: 1;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  vertical-align: middle; /* ! */
+  margin: 20px;
+}
+
+.meal-title {
+  font-size: 14;
+  font-weight: 700;
+}
+
+.meal-description {
+  font-size: 8;
+  font-weight: 200;
+  color: grey;
+}
+
+.meal-price {
+  font-size: 12;
+  font-weight: 200;
 }

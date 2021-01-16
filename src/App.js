@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import Cover from "./componants/Cover";
+import Category from "./componants/Category";
 
 function App() {
   const [infos, setInfos] = useState({});
@@ -25,7 +27,31 @@ function App() {
 
   return (
     <div className="container">
-      {isLoading ? <h1>Loading...</h1> : <h1>{infos.restaurant.name}</h1>}
+      <header>
+        <img src="./assets/Deliveroo-Logo.jpg" alt="logo" />
+      </header>
+      <div>
+        {isLoading ? (
+          <h2>Loading...</h2>
+        ) : (
+          <div>
+            <Cover
+              title={infos.restaurant.name}
+              text={infos.restaurant.description}
+              imageURL="./assets/header-image.jpg"
+            />
+            <div className="content">
+              {infos.categories.map((category, index) => (
+                <Category
+                  title={category.name}
+                  meals={category.meals}
+                  key={index}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
