@@ -7,7 +7,7 @@ import Cart from "./componants/Cart";
 
 function App() {
   const [infos, setInfos] = useState({});
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   const fetchData = async () => {
@@ -22,6 +22,35 @@ function App() {
       console.log(error);
     }
   };
+
+  const addToCart = (props) => {
+    let newCart = [...cart];
+
+    if (newCart.length === 0) {
+      newCart.push({
+        title: props.title,
+        price: props.price,
+        quantity: 1,
+      });
+      setCart(newCart);
+    } else {
+      for (let i = 0; i < newCart.length; i++) {
+        if (newCart[i].title === props.title) {
+          newCart[i].quantity = newCart[i].quantity + 1;
+          setCart(newCart);
+          return;
+        }
+      }
+      newCart.push({
+        title: props.title,
+        price: props.price,
+        quantity: 1,
+      });
+      setCart(newCart);
+    }
+  };
+
+  console.log(cart);
 
   useEffect(() => {
     fetchData();
@@ -57,11 +86,12 @@ function App() {
                     title={category.name}
                     meals={category.meals}
                     key={index}
+                    addToCart={addToCart}
                   />
                 ))}
               </div>
               <div className="cart-bloc">
-                <Cart />
+                <Cart cart={cart} setCart={setCart} />
               </div>
             </div>
           </div>

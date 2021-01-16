@@ -1,9 +1,14 @@
 import React from "react";
 
 const Meal = (props) => {
-  const { title, description, price, picture } = props;
+  const { title, description, price, picture, addToCart } = props;
   return (
-    <div className="meal-card">
+    <div
+      className="meal-card"
+      onClick={() => {
+        addToCart(props);
+      }}
+    >
       <div className="meal-content">
         <p className="meal-title">{title}</p>
         <p className="meal-description">{description}</p>

@@ -2,7 +2,7 @@ import React from "react";
 import Meal from "./Meal";
 
 const Category = (props) => {
-  const { title, meals } = props;
+  const { title, meals, addToCart } = props;
   return (
     <div>
       <h2>{title}</h2>
@@ -18,6 +18,7 @@ const Category = (props) => {
             }
             price={meal.price}
             picture={meal.picture}
+            addToCart={addToCart}
           />
         ))}
       </div>
