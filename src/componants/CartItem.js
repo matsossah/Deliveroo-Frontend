@@ -2,7 +2,7 @@ import React from "react";
 import Counter from "./Counter";
 
 const CartItem = (props) => {
-  const { title, price, quantity, cart, addToCart, removeFromCart } = props;
+  const { title, price } = props;
 
   return (
     <div className="cart-item">

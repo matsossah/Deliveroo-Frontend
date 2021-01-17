@@ -12,6 +12,7 @@ const Cart = (props) => {
       <Button title="Valider mon panier" handleClick={handleClick} />
       {cart.map((cartItem, index) => (
         <CartItem
+          id={cartItem.id}
           title={cartItem.title}
           price={cartItem.price}
           quantity={cartItem.quantity}

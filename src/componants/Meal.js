@@ -1,12 +1,12 @@
 import React from "react";
 
 const Meal = (props) => {
-  const { title, description, price, picture, addToCart } = props;
+  const { id, title, description, price, picture, addToCart } = props;
   return (
     <div
       className="meal-card"
       onClick={() => {
-        addToCart(props);
+        addToCart(id);
       }}
     >
       <div className="meal-content">

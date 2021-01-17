@@ -10,6 +10,7 @@ const Category = (props) => {
         {meals.map((meal, index) => (
           <Meal
             key={meal.id}
+            id={meal.id}
             title={meal.title}
             description={
               meal.description.length < 45

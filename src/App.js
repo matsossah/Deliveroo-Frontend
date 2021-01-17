@@ -23,46 +23,59 @@ function App() {
     }
   };
 
-  const addToCart = (props) => {
+  const addToCart = (id) => {
     let newCart = [...cart];
 
-    if (newCart.length === 0) {
-      newCart.push({
-        title: props.title,
-        price: props.price,
-        quantity: 1,
-      });
+    const itemAlreadyInCart = cart.find((cartItem) => cartItem.id === id);
+
+    if (itemAlreadyInCart) {
+      const index = cart.indexOf(itemAlreadyInCart);
+      newCart[index].quantity += 1;
       setCart(newCart);
     } else {
-      for (let i = 0; i < newCart.length; i++) {
-        if (newCart[i].title === props.title) {
-          newCart[i].quantity = newCart[i].quantity + 1;
-          setCart(newCart);
-          return;
-        }
-      }
+      let mealSelected = null;
+      infos.categories.forEach((category) => {
+        category.meals.forEach((meal) => {
+          if (meal.id === id) {
+            mealSelected = meal;
+          }
+        });
+      });
+
       newCart.push({
-        title: props.title,
-        price: props.price,
+        id: mealSelected.id,
+        price: mealSelected.price,
+        name: mealSelected.title,
         quantity: 1,
       });
+
       setCart(newCart);
     }
   };
 
-  const removeFromCart = (props) => {
+  const removeFromCart = (id) => {
     let newCart = [...cart];
 
-    for (let i = 0; i < newCart.length; i++) {
-      if (newCart[i].title === props.title) {
-        newCart[i].quantity = newCart[i].quantity - 1;
-        if (newCart[i].quantity === 0) {
-          newCart.splice(i, 1);
-        }
-        setCart(newCart);
-        return;
-      }
-    }
+    const mealToDelete = cart.find((cartItem) => cartItem.id === id);
+    const index = cart.indexOf(mealToDelete);
+
+    newCart[index].quantity -= 1;
+
+    const notZeroQuantityCart = newCart.filter(
+      (cartItem) => cartItem.quantity > 0
+    );
+    setCart(notZeroQuantityCart);
+
+    // for (let i = 0; i < newCart.length; i++) {
+    //   if (newCart[i].title === props.title) {
+    //     newCart[i].quantity = newCart[i].quantity - 1;
+    //     if (newCart[i].quantity === 0) {
+    //       newCart.splice(i, 1);
+    //     }
+    //     setCart(newCart);
+    //     return;
+    //   }
+    // }
   };
 
   useEffect(() => {
