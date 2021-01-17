@@ -57,25 +57,15 @@ function App() {
     let newCart = [...cart];
 
     const mealToDelete = cart.find((cartItem) => cartItem.id === id);
-    const index = cart.indexOf(mealToDelete);
 
+    const index = cart.indexOf(mealToDelete);
     newCart[index].quantity -= 1;
 
     const notZeroQuantityCart = newCart.filter(
       (cartItem) => cartItem.quantity > 0
     );
-    setCart(notZeroQuantityCart);
 
-    // for (let i = 0; i < newCart.length; i++) {
-    //   if (newCart[i].title === props.title) {
-    //     newCart[i].quantity = newCart[i].quantity - 1;
-    //     if (newCart[i].quantity === 0) {
-    //       newCart.splice(i, 1);
-    //     }
-    //     setCart(newCart);
-    //     return;
-    //   }
-    // }
+    setCart(notZeroQuantityCart);
   };
 
   useEffect(() => {
