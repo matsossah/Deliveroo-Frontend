@@ -44,8 +44,8 @@ function App() {
 
       newCart.push({
         id: mealSelected.id,
-        price: mealSelected.price,
-        name: mealSelected.title,
+        price: Number(mealSelected.price),
+        title: mealSelected.title,
         quantity: 1,
       });
 

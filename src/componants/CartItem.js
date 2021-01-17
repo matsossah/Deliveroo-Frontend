@@ -10,7 +10,7 @@ const CartItem = (props) => {
         <Counter {...props} />
       </div>
       <p className="cart-item-title">{title}</p>
-      <p className="cart-item-price">{price}</p>
+      <p className="cart-item-price">{Number(price)}€</p>
     </div>
   );
 };
