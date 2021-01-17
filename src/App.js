@@ -50,6 +50,18 @@ function App() {
     }
   };
 
+  const removeFromCart = (props) => {
+    let newCart = [...cart];
+
+    for (let i = 0; i < newCart.length; i++) {
+      if (newCart[i].title === props.title) {
+        newCart[i].quantity = newCart[i].quantity - 1;
+        setCart(newCart);
+        return;
+      }
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -89,7 +101,11 @@ function App() {
                 ))}
               </div>
               <div className="cart-bloc">
-                <Cart cart={cart} setCart={setCart} />
+                <Cart
+                  cart={cart}
+                  addToCart={addToCart}
+                  removeFromCart={removeFromCart}
+                />
               </div>
             </div>
           </div>

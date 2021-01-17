@@ -1,13 +1,27 @@
 import React from "react";
 
 const Counter = (props) => {
-  const { quantity, setCart } = props;
+  const { title, price, quantity, cart, addToCart, removeFromCart } = props;
+  console.log(quantity);
+  console.log(title);
 
   return (
     <div>
-      <button>-</button>
+      <button
+        onClick={() => {
+          removeFromCart(props);
+        }}
+      >
+        -
+      </button>
       <span>{quantity}</span>
-      <button>+</button>
+      <button
+        onClick={() => {
+          addToCart(props);
+        }}
+      >
+        +
+      </button>
     </div>
   );
 };
