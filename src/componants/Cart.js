@@ -10,20 +10,17 @@ const Cart = (props) => {
   return (
     <div className="cart">
       <Button title="Valider mon panier" handleClick={handleClick} />
-      {cart.map(
-        (cartItem, index) =>
-          cartItem.quantity > 0 && (
-            <CartItem
-              title={cartItem.title}
-              price={cartItem.price}
-              quantity={cartItem.quantity}
-              cart={cart}
-              addToCart={addToCart}
-              removeFromCart={removeFromCart}
-              key={index}
-            />
-          )
-      )}
+      {cart.map((cartItem, index) => (
+        <CartItem
+          title={cartItem.title}
+          price={cartItem.price}
+          quantity={cartItem.quantity}
+          cart={cart}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          key={index}
+        />
+      ))}
     </div>
   );
 };

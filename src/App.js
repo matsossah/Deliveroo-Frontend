@@ -56,6 +56,9 @@ function App() {
     for (let i = 0; i < newCart.length; i++) {
       if (newCart[i].title === props.title) {
         newCart[i].quantity = newCart[i].quantity - 1;
+        if (newCart[i].quantity === 0) {
+          newCart.splice(i, 1);
+        }
         setCart(newCart);
         return;
       }
