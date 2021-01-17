@@ -61,7 +61,8 @@ header img {
 
 .cart {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   padding: 10px;
   width: 300px;
   height: 400px;
@@ -74,6 +75,31 @@ header img {
   width: 290px;
   height: 60px;
   border-radius: 5px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 290px;
+  background-color: blue;
+}
+
+.cart-item-counter {
+  flex: 1;
+  background-color: mediumpurple;
+}
+
+.cart-item-title {
+  flex: 2;
+  background-color: firebrick;
+}
+
+.cart-item-price {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  background-color: fuchsia;
 }
 
 .meal-list {

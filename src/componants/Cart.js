@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "./Button.js";
+import Button from "./Button";
+import CartItem from "./CartItem";
 
 const Cart = (props) => {
   const { cart, setCart } = props;
@@ -10,7 +11,13 @@ const Cart = (props) => {
     <div className="cart">
       <Button title="Valider mon panier" handleClick={handleClick} />
       {cart.map((cartItem, index) => (
-        <p key={index}>{cartItem.title}</p>
+        <CartItem
+          title={cartItem.title}
+          price={cartItem.price}
+          quantity={cartItem.quantity}
+          setCart={setCart}
+          key={index}
+        />
       ))}
     </div>
   );

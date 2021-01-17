@@ -50,8 +50,6 @@ function App() {
     }
   };
 
-  console.log(cart);
-
   useEffect(() => {
     fetchData();
   }, []);
